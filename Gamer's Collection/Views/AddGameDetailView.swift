@@ -81,16 +81,27 @@ struct AddGameDetailView: View {
                             
                         }
                         
-                        
-                        TextField("Comments", text: $viewModel.comment)
+                       
+                            
+                        VStack(alignment: .leading) {
+                            Text("Comments:")
+                                .font(.headline)
+                                .foregroundColor(.gray)
+                                .underline()
+                                .padding(.horizontal, 20)
+                                .padding(.top, 20)
+
+                        TextField("", text: $viewModel.comment)
                             .foregroundColor(.white)
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(LinearGradient(gradient: Gradient(colors: [.purple, .gray]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .clipShape(RoundedRectangle(cornerRadius: 15))
                             .opacity(0.5)
-                            .padding(20)
-                            
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 20)
+
+                        }
                         
                     }
                 }

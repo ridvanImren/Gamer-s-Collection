@@ -9,7 +9,7 @@ import Foundation
 @MainActor class GameDetailViewModel: ObservableObject {
     @Published var game: Game
     @Published var userRating = 3
-    @Published var comment = "Comments"
+    @Published var comment = ""
     
     func save(game: Game) {
         

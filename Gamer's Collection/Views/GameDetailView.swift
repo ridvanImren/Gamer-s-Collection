@@ -11,56 +11,56 @@ struct GameDetailView: View {
     var game: GameEntity
     
     var body: some View {
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [.purple, .black]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
-                ScrollView{
-                    VStack{
-                        Group {
-                            if let imageURLString = game.imageURL {
-                                if let imageURL = URL(string: imageURLString) {
-                                    AsyncImage(url: imageURL) { image in
-                                        image
-                                            .resizable()
-                                            .scaledToFit()
-
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [.purple, .black]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+            ScrollView{
+                VStack{
+                    Group {
+                        if let imageURLString = game.imageURL {
+                            if let imageURL = URL(string: imageURLString) {
+                                AsyncImage(url: imageURL) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                    
+                                } placeholder: {
+                                    ProgressView()
                                 }
                             }
                         }
-                        .frame(maxWidth: .infinity)
-                        
-                        Text("Release Date: \(game.wrappedReleaseDate)")
-                            .italic()
-                            .foregroundColor(.white)
-                        VStack(alignment: .leading) {
-                            HStack{
-                                
-                                VStack(alignment: .leading){
-                                    Text("Genre")
-                                        .font(.headline)
-                                        .foregroundColor(.gray)
-                                        .underline()
-                                        .padding(.bottom, 3)
-                                    ForEach(game.genreArray) {genre in
-                                        Text(genre.wrappedGenre)
-                                            .foregroundColor(.white)
-                                            .padding(.bottom, 0.1)
-                                    }
+                    }
+                    .frame(maxWidth: .infinity)
+                    
+                    Text("Release Date: \(game.wrappedReleaseDate)")
+                        .italic()
+                        .foregroundColor(.white)
+                    VStack(alignment: .leading) {
+                        HStack{
+                            
+                            VStack(alignment: .leading){
+                                Text("Genre")
+                                    .font(.headline)
+                                    .foregroundColor(.gray)
+                                    .underline()
+                                    .padding(.bottom, 3)
+                                ForEach(game.genreArray) {genre in
+                                    Text(genre.wrappedGenre)
+                                        .foregroundColor(.white)
+                                        .padding(.bottom, 0.1)
                                 }
-                                
-                                Spacer()
-                                RatingView(rating: .constant(Int(game.starRating)))
-                                
-                                
                             }
-                            .padding(20)
+                            
+                            Spacer()
+                            RatingView(rating: .constant(Int(game.starRating)))
                             
                             
                         }
+                        .padding(20)
                         
                         
+                    }
+                    
+                    if game.wrappedComment.count > 0 {
                         Text(game.wrappedComment)
                             .foregroundColor(.white)
                             .padding()
@@ -71,11 +71,12 @@ struct GameDetailView: View {
                             .padding(20)
                     }
                 }
-                .navigationTitle(game.wrappedName)
-                .navigationBarTitleDisplayMode(.inline)
-                
             }
+            .navigationTitle(game.wrappedName)
+            .navigationBarTitleDisplayMode(.inline)
             
+        }
+        
     }
     
     
