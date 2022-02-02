@@ -21,6 +21,8 @@
 		F330307427A16C6A00AD99EE /* GenreEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F330307027A16C6A00AD99EE /* GenreEntity+CoreDataProperties.swift */; };
 		F330307627A17E0C00AD99EE /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F330307527A17E0C00AD99EE /* GameDetailViewModel.swift */; };
 		F330307827A1BA2900AD99EE /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F330307727A1BA2900AD99EE /* GameDetailView.swift */; };
+		F366659027AB1864000ADC57 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = F366658F27AB1864000ADC57 /* CachedAsyncImage */; };
+		F366659227AB1B25000ADC57 /* URLCache+imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366659127AB1B25000ADC57 /* URLCache+imageCache.swift */; };
 		F3952B8727A06E4A00D06D9C /* GamersCollectionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952B8627A06E4A00D06D9C /* GamersCollectionApp.swift */; };
 		F3952B8927A06E4A00D06D9C /* AddGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3952B8827A06E4A00D06D9C /* AddGameView.swift */; };
 		F3952B8B27A06E4B00D06D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3952B8A27A06E4B00D06D9C /* Assets.xcassets */; };
@@ -44,6 +46,7 @@
 		F330307027A16C6A00AD99EE /* GenreEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenreEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F330307527A17E0C00AD99EE /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
 		F330307727A1BA2900AD99EE /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
+		F366659127AB1B25000ADC57 /* URLCache+imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLCache+imageCache.swift"; sourceTree = "<group>"; };
 		F3952B8327A06E4A00D06D9C /* Gamer's Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gamer's Collection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3952B8627A06E4A00D06D9C /* GamersCollectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamersCollectionApp.swift; sourceTree = "<group>"; };
 		F3952B8827A06E4A00D06D9C /* AddGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameView.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F366659027AB1864000ADC57 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +101,7 @@
 				F330306E27A16C6A00AD99EE /* GameEntity+CoreDataProperties.swift */,
 				F330306F27A16C6A00AD99EE /* GenreEntity+CoreDataClass.swift */,
 				F330307027A16C6A00AD99EE /* GenreEntity+CoreDataProperties.swift */,
+				F366659127AB1B25000ADC57 /* URLCache+imageCache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,6 +160,9 @@
 			dependencies = (
 			);
 			name = "Gamer's Collection";
+			packageProductDependencies = (
+				F366658F27AB1864000ADC57 /* CachedAsyncImage */,
+			);
 			productName = "Gamer's Collection";
 			productReference = F3952B8327A06E4A00D06D9C /* Gamer's Collection.app */;
 			productType = "com.apple.product-type.application";
@@ -183,6 +191,9 @@
 				Base,
 			);
 			mainGroup = F3952B7A27A06E4A00D06D9C;
+			packageReferences = (
+				F366658E27AB1863000ADC57 /* XCRemoteSwiftPackageReference "SwiftUI-CachedAsyncImage" */,
+			);
 			productRefGroup = F3952B8427A06E4A00D06D9C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -215,6 +226,7 @@
 				F330305327A0898600AD99EE /* SearchBar.swift in Sources */,
 				F330307227A16C6A00AD99EE /* GameEntity+CoreDataProperties.swift in Sources */,
 				F330305927A13B1700AD99EE /* RatingView.swift in Sources */,
+				F366659227AB1B25000ADC57 /* URLCache+imageCache.swift in Sources */,
 				F3952B8927A06E4A00D06D9C /* AddGameView.swift in Sources */,
 				F32B166727A1C554004441EA /* tags.swift in Sources */,
 				F330307827A1BA2900AD99EE /* GameDetailView.swift in Sources */,
@@ -433,6 +445,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F366658E27AB1863000ADC57 /* XCRemoteSwiftPackageReference "SwiftUI-CachedAsyncImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/SwiftUI-CachedAsyncImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F366658F27AB1864000ADC57 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F366658E27AB1863000ADC57 /* XCRemoteSwiftPackageReference "SwiftUI-CachedAsyncImage" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F3952B9427A06E6800D06D9C /* GameData.xcdatamodeld */ = {

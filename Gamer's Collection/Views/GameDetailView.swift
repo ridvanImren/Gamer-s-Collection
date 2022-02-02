@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct GameDetailView: View {
     var game: GameEntity
@@ -18,7 +19,7 @@ struct GameDetailView: View {
                     Group {
                         if let imageURLString = game.imageURL {
                             if let imageURL = URL(string: imageURLString) {
-                                AsyncImage(url: imageURL) { image in
+                                CachedAsyncImage(url: imageURL, urlCache: .imageCache) { image in
                                     image
                                         .resizable()
                                         .scaledToFit()

@@ -13,7 +13,7 @@ struct tags: View {
         ForEach(tags, id: \.self) { e in
             Text(e)
                 .foregroundColor(.pink)
-                .font(.system(size: 10))
+                .font(.system(size: 8))
                 .padding(4)
                 .overlay(
                    RoundedRectangle(cornerRadius: 10)

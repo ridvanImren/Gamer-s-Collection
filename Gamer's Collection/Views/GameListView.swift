@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 
 struct GameListView: View {
@@ -22,17 +23,38 @@ struct GameListView: View {
                 } else {
                     List {
                         ForEach(games) { game in
+                            VStack {
+                            
                             NavigationLink{
                                 GameDetailView(game: game)
                             } label: {
+                                
+                                
                                 HStack {
-                                    Text(game.wrappedName)
-                                        .bold()
-                                        .font(.subheadline)
-                                        .lineLimit(1)
-                                    Spacer()
+                                    Group {
+                                        if let imageURLString = game.imageURL {
+                                            if let imageURL = URL(string: imageURLString) {
+                                                CachedAsyncImage(url: imageURL, urlCache: .imageCache) { image in
+                                                    image
+                                                        .resizable()
+//                                                        .scaledToFit()
+                                                    
+                                                } placeholder: {
+                                                    ProgressView()
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .frame(width: 120, height: 90)
+
+                                    
                                     VStack(alignment: .leading, spacing: 8) {
                                         tags(tags: getGenres(game: game))
+                                        Text(game.wrappedName)
+                                            .bold()
+                                            .font(.subheadline)
+                                            .lineLimit(1)
+
                                     }
                                     
                                 }
@@ -41,11 +63,13 @@ struct GameListView: View {
                             
                             
                         }
+                    }
                         .onDelete(perform: deleteBooks)
                     }
                 }
             }
-            .listStyle(DefaultListStyle())
+            
+            .listStyle(GroupedListStyle())
             .toolbar {
                 Button{
                     isShowingSheet = true
@@ -76,8 +100,8 @@ struct GameListView: View {
         for genre in game.genreArray {
             genres.append(genre.wrappedGenre)
         }
-        if genres.count > 1 {
-            return [genres[0], genres[1]]
+        if genres.count > 2 {
+            return [genres[0], genres[1], genres[2]]
         } else {
             return genres
         }
