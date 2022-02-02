@@ -11,7 +11,6 @@ struct GameDetailView: View {
     var game: GameEntity
     
     var body: some View {
-        NavigationView  {
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [.purple, .black]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
                 ScrollView{
@@ -77,7 +76,6 @@ struct GameDetailView: View {
                 
             }
             
-        }
     }
     
     

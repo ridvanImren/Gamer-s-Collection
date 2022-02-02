@@ -12,7 +12,6 @@ struct AddGameView: View {
     @ObservedObject var viewModel =  AddGameViewModel()
     
     var body: some View {
-        NavigationView {
             ZStack {
                 LinearGradient(gradient: Gradient(colors: [.purple, .black]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
                 VStack{
@@ -47,7 +46,6 @@ struct AddGameView: View {
             .navigationTitle("Search & Add Game")
             .navigationBarTitleDisplayMode(.inline)
             
-        }
     }
     
     
