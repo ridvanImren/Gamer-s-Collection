@@ -60,14 +60,8 @@ struct AddGameDetailView: View {
                         
                         
                         VStack(alignment: .leading) {
-                            Text("Comments:")
-                                .font(.headline)
-                                .foregroundColor(.gray)
-                                .underline()
-                                .padding(.horizontal, 20)
-                                .padding(.top, 20)
                             
-                            TextField("", text: $viewModel.comment)
+                            TextField("Comments", text: $viewModel.comment)
                                 .foregroundColor(.white)
                                 .padding()
                                 .frame(maxWidth: .infinity)
