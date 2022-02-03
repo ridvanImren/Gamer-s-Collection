@@ -23,6 +23,7 @@ extension GameEntity {
     @NSManaged public var imageURL: String?
     @NSManaged public var comment: String?
     @NSManaged public var genre: NSSet?
+    @NSManaged public var screenShots: [String]?
 
     public var wrappedName: String {
         name ?? "Unknown name"
@@ -47,6 +48,10 @@ extension GameEntity {
         return set.sorted {
             $0.wrappedGenre < $1.wrappedGenre
         }
+    }
+    
+    public var wrappedScreenShots: [String] {
+        screenShots ?? [wrappedImageURL]
     }
 
 }

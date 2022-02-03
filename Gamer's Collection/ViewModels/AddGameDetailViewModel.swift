@@ -6,10 +6,11 @@
 //
 
 import Foundation
-@MainActor class GameDetailViewModel: ObservableObject {
+@MainActor class AddGameDetailViewModel: ObservableObject {
     @Published var game: Game
     @Published var userRating = 3
     @Published var comment = ""
+    
     
     func save(game: Game) {
         
@@ -20,6 +21,13 @@ import Foundation
         newGame.starRating = Int16(userRating)
         newGame.imageURL = game.background_image
         newGame.comment = comment
+        
+        var ssImageStrings = [String]()
+        for ss in game.unwrappedScreenshots {
+            ssImageStrings.append(ss.image)
+        }
+        
+        newGame.screenShots = ssImageStrings
         
         for genre in game.unwrappedGenre {
             let newGenre = GenreEntity(context: DataController.shared.viewContext)

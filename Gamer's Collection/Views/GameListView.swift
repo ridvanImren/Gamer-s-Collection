@@ -24,13 +24,14 @@ struct GameListView: View {
                     List {
                         ForEach(games) { game in
                             VStack {
-                            
+                                
                             NavigationLink{
-                                GameDetailView(game: game)
+                                GameDetailView(gameEntity: game)
                             } label: {
                                 
                                 
-                                HStack {
+                                HStack() {
+                                    
                                     Group {
                                         if let imageURLString = game.imageURL {
                                             if let imageURL = URL(string: imageURLString) {
@@ -46,6 +47,7 @@ struct GameListView: View {
                                         }
                                     }
                                     .frame(width: 120, height: 90)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
 
                                     
                                     VStack(alignment: .leading, spacing: 8) {
@@ -66,6 +68,7 @@ struct GameListView: View {
                     }
                         .onDelete(perform: deleteBooks)
                     }
+                    
                 }
             }
             
