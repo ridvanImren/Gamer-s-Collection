@@ -12,7 +12,8 @@ import Combine
     @Published var games = Games(data: [Game]())
     @Published var searchName = ""
     @Published var isEditing = false
-    
+    var cancellables = Set<AnyCancellable>()
+
     func fetchGames(_ name: String) async {
         let name = searchName.components(separatedBy: .whitespacesAndNewlines).joined(separator: "%20")
         print(name)
@@ -40,6 +41,7 @@ import Combine
             } receiveValue: { [weak self] (returnedGames) in
                 self?.games.data = returnedGames.results
             }
+            .store(in: &cancellables)
         
         
         func handleOutput(output: Publishers.SubscribeOn<URLSession.DataTaskPublisher, DispatchQueue>.Output) throws -> Data {
