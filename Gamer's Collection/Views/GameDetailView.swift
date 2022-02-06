@@ -56,7 +56,7 @@ struct GameDetailView: View {
                         .frame(maxWidth: .infinity)
 
                     
-                    Text("Release Date: \(game.unwrappedReleaseDate)")
+                    Text("Release Date: \(gameEntity.wrappedReleaseDate)")
                         .italic()
                         .foregroundColor(.white)
                     VStack(alignment: .leading) {

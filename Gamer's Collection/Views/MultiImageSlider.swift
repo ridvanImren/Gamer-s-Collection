@@ -10,25 +10,33 @@ import CachedAsyncImage
 
 struct MultiImageSlider: View {
     let game: Game
-
-
+    
+    
     var body: some View {
         // TabView for displaying multiple images fetched from the API.
         
         ZStack {
+            
+            // For loading and caching images on appear.
             ForEach(game.unwrappedScreenshots) { urlString in
-                cachedImage(urlString: urlString.image)
-                    .opacity(0)
+                
+                if urlString.image != game.unwrappedScreenshots[0].image {
+                    cachedImage(urlString: urlString.image)
+                        .opacity(0)
+                }
             }
             
-        TabView {
-            ForEach(game.unwrappedScreenshots) { urlString in
-                cachedImage(urlString: urlString.image)
-                    .padding(2)
+            TabView {
+                ForEach(game.unwrappedScreenshots) { urlString in
+                    if urlString.image != game.unwrappedScreenshots[0].image {
+                        
+                        cachedImage(urlString: urlString.image)
+                            .padding(2)
+                    }
+                }
             }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-    }
     }
     
 }
@@ -62,7 +70,7 @@ extension MultiImageSlider {
             
         }
     }
-
+    
 }
 
 
